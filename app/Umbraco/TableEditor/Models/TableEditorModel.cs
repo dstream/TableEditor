@@ -4,29 +4,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TableEditor.Models
+namespace MultiLocationMapTableEditor.Models
 {
     public class TableEditorModel
     {
         /*
         {
-            useFirstRowAsHeader: false,
-            useLastRowAsFooter: false,
+            showLocationTitle: true,
+            showAddress: true,
+            showPhoneNumber: true,
+            showEmail: true,
             tableStyle: null,
             columnStylesSelected: [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+            ],
+            rowStylesSelected: [
+               null,
                null,
                null
             ],
             cells: [
-                [{ value: "" }, { value: "" }],
-                [{ value: "" }, { value: "" }],
-                [{ value: "" }, { value: "" }],
+                [{ value: "Location title" }, { value: "Address" }, { value: "Phone number" }, { value: "Email address" }, { value: "Latitude[invisible]" }, { value: "Longlongitude[invisible]" }],
+                [{ value: "" }, { value: "" }, { value: "" }, { value: "" }, { value: "" }, { value: "" }],
+                [{ value: "" }, { value: "" }, { value: "" }, { value: "" }, { value: "" }, { value: "" }],
             ]
         }
         */
 
-        public bool UseFirstRowAsHeader { get; set; }
-        public bool UseLastRowAsFooter { get; set; }
+        public bool ShowLocationTitle { get; set; }
+        public bool ShowAddress { get; set; }
+        public bool ShowPhoneNumber { get; set; }
+        public bool ShowEmail { get; set; }
         public string TableStyle { get; set; }
         public IEnumerable<string> ColumnStylesSelected { get; set; }
         public IEnumerable<string> RowStylesSelected { get; set; }

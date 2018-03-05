@@ -7,8 +7,8 @@
     <ProjectGuid>{D7DE67C3-1434-46C5-98C5-32B1242982A4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TableEditor</RootNamespace>
-    <AssemblyName>TableEditor</AssemblyName>
+    <RootNamespace>MultiLocationMapTableEditor</RootNamespace>
+    <AssemblyName>MultiLocationMapTableEditor</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>

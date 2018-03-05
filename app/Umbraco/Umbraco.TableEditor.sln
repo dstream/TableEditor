@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableEditor", "TableEditor\TableEditor.csproj", "{D7DE67C3-1434-46C5-98C5-32B1242982A4}"
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiLocationMapTableEditor", "TableEditor\MultiLocationMapTableEditor.csproj", "{D7DE67C3-1434-46C5-98C5-32B1242982A4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0BBA72E6-A336-482C-9D46-C4E5663731F9}"
 	ProjectSection(SolutionItems) = preProject
@@ -23,5 +25,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DE499063-3CF8-47D1-8CEF-FCD64652C54B}
 	EndGlobalSection
 EndGlobal

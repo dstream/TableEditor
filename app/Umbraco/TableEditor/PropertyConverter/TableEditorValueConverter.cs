@@ -9,10 +9,9 @@ using Umbraco.Web;
 using Umbraco.Core.Models.PublishedContent;
 using Umbraco.Core.PropertyEditors;
 using Umbraco.Core.Logging;
-using TableEditor.Models;
-using TableEditor.Extensions;
+using MultiLocationMapTableEditor.Models;
 
-namespace TableEditor.PropertyConverter
+namespace MultiLocationMapTableEditor.PropertyConverter
 {
     [PropertyValueType(typeof(TableEditorModel))]
     [PropertyValueCache(PropertyCacheValue.All, PropertyCacheLevel.Content)]
@@ -20,7 +19,7 @@ namespace TableEditor.PropertyConverter
     {
         public override bool IsConverter(PublishedPropertyType propertyType)
         {
-            return propertyType.PropertyEditorAlias.Equals("Imulus.TableEditor");
+            return propertyType.PropertyEditorAlias.Equals("MultiLocationMapTableEditor");
         }
 
         public override object ConvertDataToSource(PublishedPropertyType propertyType, object source, bool preview)
@@ -36,7 +35,7 @@ namespace TableEditor.PropertyConverter
             {
                 try
                 {
-                    var tableEditor = JsonConvert.DeserializeObject<TableEditorModel>(sourceString);
+                    var tableEditor = JsonConvert.DeserializeObject<TableEditorModel>(sourceString);                    
 
                     return tableEditor;
                 }

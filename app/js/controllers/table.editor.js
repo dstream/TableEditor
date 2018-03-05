@@ -1,15 +1,21 @@
-﻿angular.module('umbraco').controller('TableEditorController', function ($scope) {
+﻿angular.module('umbraco').controller('MultiLocationMapTableEditorController', function ($scope) {
     
     //$scope.model.value = null;
 
     var emptyCellModel = '{"value": ""}';
     var defaultModel = {
-        useFirstRowAsHeader: false,
-        useLastRowAsFooter: false,
+        showLocationTitle: true,
+        showAddress: true,
+        showPhoneNumber: true,
+        showEmail: true,
         tableStyle: null,
         columnStylesSelected: [
-           null,
-           null
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         rowStylesSelected: [
            null,
@@ -17,9 +23,9 @@
            null
         ],
         cells: [
-            [{ value: "" }, { value: "" }],
-            [{ value: "" }, { value: "" }],
-            [{ value: "" }, { value: "" }],
+            [{ value: "Location title" }, { value: "Address" }, { value: "Phone number" }, { value: "Email address" }, { value: "Latitude[invisible]" }, { value: "Longlongitude[invisible]" }],
+            [{ value: "" }, { value: "" }, { value: "" }, { value: "" }, { value: "" }, { value: "" }],
+            [{ value: "" }, { value: "" }, { value: "" }, { value: "" }, { value: "" }, { value: "" }],
         ]
     }
 
@@ -29,11 +35,10 @@
     $scope.model.config.tableStyles = parseStyleConfig($scope.model.config.tableStyles);
     $scope.model.config.columnStyles = parseStyleConfig($scope.model.config.columnStyles);
     $scope.model.config.rowStyles = parseStyleConfig($scope.model.config.rowStyles);
-    $scope.model.config.multiLineInputs = $scope.model.config.multiLineInputs === "1" ? true : false;
  
     //console.log($scope.model.value);
 
-    $scope.canAddRow = function () {
+    $scope.canAddRow = function ($index) {
         if (isNaN(parseInt($scope.model.config.maxRows, 10))) {
             return true;
         }
@@ -53,8 +58,10 @@
         }
     }
 
-    $scope.canAddColumn = function () {
-
+    $scope.canAddColumn = function ($index) {
+        if ($index < 5) { // fixed system cols, allow add button at last col
+            return false;
+        }
         if (isNaN(parseInt($scope.model.config.maxColumns, 10))) {
             return true;   
         }
@@ -75,7 +82,10 @@
         }
     }
 
-    $scope.canRemoveRow = function () {
+    $scope.canRemoveRow = function ($index) {
+        if ($index == 0) { // first Row is header for default, don't allow to remove it
+            return false;
+        }
         return ($scope.model.value.cells.length > 1);
     }
 
@@ -87,7 +97,10 @@
         }
     }
 
-    $scope.canRemoveColumn = function () {
+    $scope.canRemoveColumn = function ($index) {
+        if ($index < 6) { //don't allow to remove fixed system cols
+            return false;
+        }
         return getColumnCount() > 1;
     }
 
@@ -103,7 +116,10 @@
         }
     }
 
-    $scope.canSort = function () {
+    $scope.canSort = function ($index) {
+        if ($index == 0) {//first Row is header for default, don't allow to sort it
+            return false;
+        }
         return ($scope.model.value.cells.length > 1);
     }
 
@@ -131,9 +147,9 @@
     }
 
     function parseStyleConfig(configString) {
-		if(!configString)
-			return;
-	
+        if(!configString)
+            return;
+    
         //Col Style 1,col-style-1
 
         var lines = configString.split('\n');
@@ -174,17 +190,17 @@
             $rowControls.show();
             
             element.addClass("row-highlighted");
-			
-			if($rowStyle.find('option').length > 1) {
-				$rowStyle.css('visibility', 'visible');
-			}
+            
+            if($rowStyle.find('option').length > 1) {
+                $rowStyle.css('visibility', 'visible');
+            }
         });
 
         element.bind('mouseout', function () {
             if (selectActive == false) {
                 $rowControls.hide();
                 $rowStyle.css('visibility', 'hidden');
-				//$rowStyle.find('select').hide();
+                //$rowStyle.find('select').hide();
                 element.removeClass("row-highlighted");
             }
         });
@@ -210,12 +226,12 @@
             $tds.addClass("col-highlighted");
             $th1.addClass("col-highlighted");
             $th2.addClass("col-highlighted");
-			
-			$th1.css('visibility', 'visible');
-			
-			if($th1.find('option').length > 1) {
-				$th1.find('select').css('visibility', 'visible');
-			}	
+            
+            $th1.css('visibility', 'visible');
+            
+            if($th1.find('option').length > 1) {
+                $th1.find('select').css('visibility', 'visible');
+            }   
         });
 
         element.bind('mouseout', function () {
@@ -228,7 +244,7 @@
             $tds.removeClass("col-highlighted");
             $th1.removeClass("col-highlighted");
             $th2.removeClass("col-highlighted");
-			$th1.css('visibility', 'hidden');
+            $th1.css('visibility', 'hidden');
             $th1.find('select').css('visibility', 'hidden');
         });
     }

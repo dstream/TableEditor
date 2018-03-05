@@ -1,11 +1,11 @@
 ﻿{
   "propertyEditors": [
     {
-      "name": "Table Editor",
-      "alias": "Imulus.TableEditor",
+      "name": "Multi location map Table Editor",
+      "alias": "MultiLocationMapTableEditor",
       "editor": {
         "valueType": "JSON",
-        "view": "~/App_Plugins/TableEditor/views/table.editor.html"
+        "view": "~/App_Plugins/MultiLocationMapTableEditor/views/table.editor.html"
       },
       "prevalues": {
         "fields": [
@@ -50,9 +50,9 @@
     }
   ],
   "css": [
-    "~/App_Plugins/TableEditor/css/table.editor.css"
+    "~/App_Plugins/MultiLocationMapTableEditor/css/table.editor.css"
   ],
   "javascript": [
-    "~/App_Plugins/TableEditor/js/table.editor.js"
+    "~/App_Plugins/MultiLocationMapTableEditor/js/table.editor.js"
   ]
 }
