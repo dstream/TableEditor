@@ -73,3 +73,8 @@ You can use the sample template below or customize your own.
             </tbody>
         </table>
     </div>
+
+###Screenshots
+- Front-end: http://prntscr.com/in7f1v
+- Back-end: http://prntscr.com/in7fmx
+
