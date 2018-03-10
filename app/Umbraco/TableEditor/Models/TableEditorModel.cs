@@ -14,14 +14,16 @@ namespace MultiLocationMapTableEditor.Models
             showAddress: true,
             showPhoneNumber: true,
             showEmail: true,
+            showWebsite: true,
             tableStyle: null,
             columnStylesSelected: [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
             ],
             rowStylesSelected: [
                null,
@@ -29,9 +31,9 @@ namespace MultiLocationMapTableEditor.Models
                null
             ],
             cells: [
-                [{ value: "Location title" }, { value: "Address" }, { value: "Phone number" }, { value: "Email address" }, { value: "Latitude[invisible]" }, { value: "Longlongitude[invisible]" }],
-                [{ value: "" }, { value: "" }, { value: "" }, { value: "" }, { value: "" }, { value: "" }],
-                [{ value: "" }, { value: "" }, { value: "" }, { value: "" }, { value: "" }, { value: "" }],
+                [{ value: "Location title" }, { value: "Address" }, { value: "Phone number" }, { value: "Email address" }, { value: "Website" }, { value: "Latitude[invisible]" }, { value: "Longlongitude[invisible]" }],
+                [{ value: "" }, { value: "" }, { value: "" }, { value: "" }, { value: "" }, { value: "" }, { value: "" }],
+                [{ value: "" }, { value: "" }, { value: "" }, { value: "" }, { value: "" }, { value: "" }, { value: "" }],
             ]
         }
         */
@@ -40,6 +42,7 @@ namespace MultiLocationMapTableEditor.Models
         public bool ShowAddress { get; set; }
         public bool ShowPhoneNumber { get; set; }
         public bool ShowEmail { get; set; }
+        public bool ShowWebsite { get; set; }
         public string TableStyle { get; set; }
         public IEnumerable<string> ColumnStylesSelected { get; set; }
         public IEnumerable<string> RowStylesSelected { get; set; }

@@ -14,7 +14,8 @@ namespace MultiLocationMapTableEditor.Models
         public const int AddressColumnIndex = 1;
         public const int PhonenNumberColumnIndex = 2;
         public const int EmailColumnIndex = 3;
-        public const int LatitudeColumnIndex = 4;
-        public const int LongitudeColumnIndex = 5;
+        public const int WebsiteColumnIndex = 4;
+        public const int LatitudeColumnIndex = 5;
+        public const int LongitudeColumnIndex = 6;
     }
 }

@@ -25,14 +25,16 @@ namespace MultiLocationMapTableEditor
                 return false;
             }
             switch (colIndex) {
-                case 0://location title
+                case CellModel.LocationTitleColumnIndex:
                     return tableEditorModel.ShowLocationTitle;                    
-                case 1://address
+                case CellModel.AddressColumnIndex:
                     return tableEditorModel.ShowAddress;
-                case 2://phone number
+                case CellModel.PhonenNumberColumnIndex:
                     return tableEditorModel.ShowPhoneNumber;
-                case 3://email address
+                case CellModel.EmailColumnIndex:
                     return tableEditorModel.ShowEmail;
+                case CellModel.WebsiteColumnIndex:
+                    return tableEditorModel.ShowWebsite;
             }
             return true;
         }
@@ -65,6 +67,11 @@ namespace MultiLocationMapTableEditor
         public static string GetEmailAddress(this IEnumerable<CellModel> row)
         {
             return row.GetFieldValue(CellModel.EmailColumnIndex);
+        }
+
+        public static string GetWebsite(this IEnumerable<CellModel> row)
+        {
+            return row.GetFieldValue(CellModel.WebsiteColumnIndex);
         }
 
         public static string GetFieldValue(this IEnumerable<CellModel> row, int index)
