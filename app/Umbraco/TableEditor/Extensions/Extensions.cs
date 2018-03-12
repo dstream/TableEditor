@@ -83,7 +83,7 @@ namespace MultiLocationMapTableEditor
         public static bool IsValid(this IEnumerable<CellModel> row)
         {
             if (string.IsNullOrEmpty(row.GetLocationTitle())) return false;
-            var decimalRx = new Regex(@"^\d+(\.\d+)?$");
+            var decimalRx = new Regex(@"^-?(0|([1-9]\d*))(\.\d+)?$");
             if (!decimalRx.IsMatch(row.GetLatitude())) return false;
             if (!decimalRx.IsMatch(row.GetLongitude())) return false;
             return true;
